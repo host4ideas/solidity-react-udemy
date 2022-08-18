@@ -1,0 +1,4 @@
+tether = Tether.deployed()
+accounts = await web3.eth.getAccounts()
+balance = await tether.balanceOf(accounts)
+web3.utils.fromWei(balance)
