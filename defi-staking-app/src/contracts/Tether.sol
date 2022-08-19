@@ -25,6 +25,10 @@ contract Tether {
         balanceOf[msg.sender] = totalSupply;
     }
 
+    function getName() public view returns (string memory) {
+        return name;
+    }
+
     // Transfer from your own account (no need to approve)
     function transfer(address _to, uint256 _value)
         public
@@ -59,11 +63,12 @@ contract Tether {
         // require that the value is greater or equal for transfer
         require(_value <= balanceOf[_from]);
         require(_value <= allowance[_from][msg.sender]);
+
         // transfer the amount and subtract the balance
         balanceOf[_to] += _value;
         // Add the balance
         balanceOf[_from] -= _value;
-        allowance[msg.sender][_from] -= _value;
+        allowance[_from][msg.sender] -= _value;
 
         emit Transfer(_from, _to, _value);
         return true;
