@@ -1,0 +1,10 @@
+{
+    "solidity.packageDefaultDependenciesContractsDirectory": "defi-staking-app-starter-main/src/contracts",
+    "solidity.packageDefaultDependenciesDirectory": "defi-staking-app-starter-main/node_modules",
+    "solidity.enabledAsYouTypeCompilationErrorCheck": true,
+    "solidity.validationDelay": 1500,
+    "solidity.linter": "solhint",
+    "solidity.solhintRules": {
+        "avoid-sha3": "warn"
+    }
+}
