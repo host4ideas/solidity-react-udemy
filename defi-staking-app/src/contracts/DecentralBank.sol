@@ -29,7 +29,7 @@ contract DecentralBank {
         // require the staking amount to be great than 0
         require(_amount > 0, "amount cannot be 0");
 
-        // transfer Tether tokens to this contract address for staking
+        // transfer Tether tokens to this contract address for staking, needs approval
         tether.transferFrom(msg.sender, address(this), _amount); // to, from, value
 
         //update stakingbalance
@@ -66,9 +66,9 @@ contract DecentralBank {
 
         for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];
-            uint256 balance = stakingBalance[recipient] / 9; // divided by 9 to create percentage incentive
-            if (balance > 0) {
-                rwd.transfer(recipient, balance);
+            uint256 reward = stakingBalance[recipient] / 9; // divided by 9 to create percentage incentive
+            if (reward > 0) {
+                rwd.transfer(recipient, reward);
             }
         }
     }
